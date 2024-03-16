@@ -12,7 +12,7 @@ const Admin = {
   password: "Admin2002",
 };
 
-export default function Athent() {
+export default function Athent({ setName }) {
   const navigate = useNavigate();
   const [name, setname] = useState("");
   const [password, setpassword] = useState("");
@@ -34,6 +34,8 @@ export default function Athent() {
 
     if (User.name === name && User.password === password) {
       console.log("Logged by User");
+      // Call the function passed from the parent component to update the name state
+      setName(name);
       setname("");
       setpassword("");
       navigate("/Home");
@@ -51,6 +53,7 @@ export default function Athent() {
       }, 2000);
     }
   }
+
   return (
     <>
       <div className="login">
