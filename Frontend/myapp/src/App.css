@@ -105,3 +105,19 @@
   align-items: center;
   justify-content: space-between;
 }
+.sideheader {
+  display: flex;
+  align-items: center;
+}
+.sideheader > h2 {
+  position: relative;
+  left: 20px;
+  top: 4px;
+  color: lightgreen;
+}
+.sidecontent {
+  position: relative;
+  left: 20px;
+  align-items: center;
+  cursor: pointer;
+}

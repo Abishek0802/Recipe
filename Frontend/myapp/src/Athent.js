@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./App.css";
 import authen from "./authen.jpg";
 import { useNavigate } from "react-router-dom";
-import Sidenav from "./Components/Sidenav";
-import Output from "./Output";
 
 const User = {
   name: "Abishek",
@@ -11,7 +9,7 @@ const User = {
 };
 const Admin = {
   name: "Admin",
-  password: "Admin2002",
+  password: "admin2002",
 };
 
 export default function Athent({ setName }) {
@@ -41,6 +39,12 @@ export default function Athent({ setName }) {
       setname("");
       setpassword("");
       navigate("/Home");
+    } else if (Admin.name === name && Admin.password === password) {
+      console.log("Logged by Admin");
+      setName(name);
+      setname("");
+      setpassword("");
+      navigate("/AdminHome");
     } else {
       console.log("Login Failed ");
       setname("");

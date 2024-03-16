@@ -3,11 +3,11 @@ import "./App.css";
 import SearchIcon from "@mui/icons-material/Search";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import Sidenav from "./Components/Sidenav";
-export default function Home({ name }) {
+export default function AdminHome({ name }) {
   const [searchvalue, setsearchvalue] = useState("");
   const [out, setout] = useState("");
   function search() {
-    if (!searchvalue == "") {
+    if (!searchvalue === "") {
       setout("Search Not Found");
     }
   }
