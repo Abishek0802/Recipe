@@ -3,8 +3,9 @@ import "./App.css";
 import SearchIcon from "@mui/icons-material/Search";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import Sidenav from "./Components/Sidenav";
+import Output from "./Output";
 
-export default function Home() {
+export default function Home({ name }) {
   const [searchvalue, setsearchvalue] = useState("");
   const [out, setout] = useState("");
   function search() {
@@ -21,7 +22,7 @@ export default function Home() {
       {" "}
       <div className="topbar">
         <div>
-          <Sidenav />
+          <Sidenav name={name} />
         </div>
         <div className="searchbar">
           <input
@@ -43,6 +44,7 @@ export default function Home() {
         </div>
       </div>
       <div style={{ color: "white" }}>{out}</div>
+      <Output />
     </>
   );
 }
