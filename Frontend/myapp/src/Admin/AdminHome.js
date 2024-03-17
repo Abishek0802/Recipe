@@ -54,13 +54,40 @@ export default function AdminHome({ name, items }) {
       <div>{noOfInceridient}</div>
       <div>{time}</div>
       <div>{calories}</div> */}
-      <div>
+      <div className="display-map">
         {items.map((item, index) => (
-          <div key={index}>
-            <div>Recipename: {item.RecipeName}</div>
-            <div>No of Inceridient: {item.NoOfInceridient}</div>
-            <div>Time: {item.Time}</div>
-            <div>Calories: {item.Calories}</div>
+          <div className="mappded" key={index}>
+            <div>
+              <img
+                style={{
+                  height: "260px",
+                  width: "400px",
+                  objectFit: "fill",
+                  borderRadius: "10px",
+                }}
+                src={URL.createObjectURL(item.selectedImage)}
+                alt=""
+              />
+            </div>
+            <div
+              style={{
+                position: "relative",
+                right: "40%",
+                fontStyle: "italic",
+                color: "lightgreen",
+              }}
+            >
+              {item.RecipeName}
+            </div>
+            <div className="last3">
+              No of Inceridient: <p>{item.NoOfInceridient}</p>
+            </div>
+            <div className="last3">
+              Time: <p>{item.Time}</p>{" "}
+            </div>
+            <div className="last3">
+              Calories: <p>{item.Calories}</p>
+            </div>
           </div>
         ))}
       </div>
