@@ -44,7 +44,7 @@ export default function Athent({ setName }) {
       setName(name);
       setname("");
       setpassword("");
-      navigate("/AdminHome");
+      navigate("/Admin/AdminHome");
     } else {
       console.log("Login Failed ");
       setname("");

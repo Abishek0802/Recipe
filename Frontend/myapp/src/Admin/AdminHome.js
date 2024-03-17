@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./App.css";
+import "../App.css";
 import SearchIcon from "@mui/icons-material/Search";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import Sidenav from "./Components/Sidenav";
-export default function AdminHome({ name }) {
+import AdminSidenav from "./AdminSidenav";
+export default function AdminHome({ name, Recipename }) {
   const [searchvalue, setsearchvalue] = useState("");
   const [out, setout] = useState("");
   function search() {
@@ -20,7 +20,7 @@ export default function AdminHome({ name }) {
       {" "}
       <div className="topbar">
         <div>
-          <Sidenav name={name} />
+          <AdminSidenav name={name} />
         </div>
         <div className="searchbar">
           <input
@@ -42,6 +42,7 @@ export default function AdminHome({ name }) {
         </div>
       </div>
       <div style={{ color: "white" }}>{out}</div>
+      <div>{Recipename}</div>
     </>
   );
 }

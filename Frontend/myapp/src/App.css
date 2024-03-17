@@ -121,3 +121,26 @@
   align-items: center;
   cursor: pointer;
 }
+.recipes {
+  display: flex;
+  justify-content: space-around;
+  color: lightgreen;
+  margin-top: 15%;
+  height: fit-content;
+  cursor: pointer;
+}
+.recipe-header {
+  display: flex;
+  justify-content: space-between;
+}
+.veg {
+  text-align: center;
+  align-items: center;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.vegbtn {
+  text-align: center;
+}

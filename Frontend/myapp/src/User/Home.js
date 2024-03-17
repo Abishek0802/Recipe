@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./App.css";
+import "../App.css";
 import SearchIcon from "@mui/icons-material/Search";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import Sidenav from "./Components/Sidenav";
+import Sidenav from "./Sidenav";
 export default function Home({ name }) {
   const [searchvalue, setsearchvalue] = useState("");
   const [out, setout] = useState("");
