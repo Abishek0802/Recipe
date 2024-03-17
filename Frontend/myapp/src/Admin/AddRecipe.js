@@ -21,7 +21,14 @@ const style = {
   borderRadius: 3,
 };
 
-export default function AddRecipe({ setRecipename }) {
+export default function AddRecipe({
+  Addmodule,
+  setRecipename,
+  setselectedImage,
+  setnoOfIncerident,
+  settime,
+  setcalories,
+}) {
   const [openForVeg, setOpenForVeg] = React.useState(false);
   const handleOpenForVeg = () => setOpenForVeg(true);
   const handleCloseForVeg = () => setOpenForVeg(false);
@@ -56,7 +63,14 @@ export default function AddRecipe({ setRecipename }) {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            <VegRecipeInput setRecipename={setRecipename} />
+            <VegRecipeInput
+              Addmodule={Addmodule}
+              setRecipename={setRecipename}
+              setselectedImage={setselectedImage}
+              setnoOfIncerident={setnoOfIncerident}
+              settime={settime}
+              setcalories={setcalories}
+            />
           </Box>
         </Modal>
         <Modal

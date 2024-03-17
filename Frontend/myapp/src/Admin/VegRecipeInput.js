@@ -2,7 +2,14 @@ import React from "react";
 import { useState } from "react";
 import "../App.css";
 
-export default function VegRecipeInput({ setRecipename }) {
+export default function VegRecipeInput({
+  Addmodule,
+  setRecipename,
+  setselectedImage,
+  setnoOfIncerident,
+  settime,
+  setcalories,
+}) {
   const [selectedImage, setSelectedImage] = useState(null);
   const [RecipeName, setRecipeName] = useState("");
   const [NoOfInceridient, setNoOfIncerident] = useState("");
@@ -37,8 +44,12 @@ export default function VegRecipeInput({ setRecipename }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    Addmodule({ RecipeName, selectedImage, NoOfInceridient, Time, Calories });
     setRecipename(RecipeName);
+    setselectedImage(selectedImage);
+    setnoOfIncerident(NoOfInceridient);
+    settime(Time);
+    setcalories(Calories);
     // Perform upload logic here
     if (selectedImage) {
       console.log("Selected image:", selectedImage);
