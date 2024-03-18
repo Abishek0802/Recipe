@@ -37,7 +37,6 @@ export default function Sidenav({ name }) {
   function Logout() {
     localStorage.removeItem("name"); // Remove name from localStorage on logout
     navigate("/", { replace: true });
-    window.location.reload();
   }
   function addrecipe() {
     navigate("/Admin/AddRecipe");
@@ -64,7 +63,11 @@ export default function Sidenav({ name }) {
           </div>
         </Box>
         <div className="sidecontent">
-          <h4>
+          <h4
+            onClick={() => {
+              navigate("/Admin/Catogries");
+            }}
+          >
             Categories
             <BarChartIcon
               sx={{

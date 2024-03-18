@@ -5,6 +5,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
 import AdminHome from "./Admin/AdminHome";
 import AddRecipe from "./Admin/AddRecipe";
+import Catogries from "./Admin/Catogries";
+import CatogriesVegRecipe from "./Admin/CatogriesVegRecipe";
+import CatogriesNonVegRecipe from "./Admin/CatogriesNonVegRecipe";
+import CatogriesSnacks from "./Admin/CatogriesSnacks";
 import { createContext } from "react";
 import { useContext } from "react";
 
@@ -17,13 +21,23 @@ function App() {
   const [noOfInceridient, setnoOfIncerident] = useState("");
   const [time, settime] = useState("");
   const [calories, setcalories] = useState("");
-  const [items, setItems] = useState([]);
+  const [Vegitems, setVegItems] = useState([]);
+  const [NonVegitems, setNonVegItems] = useState([]);
+  const [Snacksitems, setSnacksItems] = useState([]);
 
-  const Addmodule = (newItem) => {
-    setItems([...items, newItem]);
+  const VegAddmodule = (newItem) => {
+    setVegItems([...Vegitems, newItem]);
+  };
+
+  const NonVegAddmodule = (newItem) => {
+    setNonVegItems([...NonVegitems, newItem]);
+  };
+  const SnacksAddmodule = (newItem) => {
+    setSnacksItems([...Snacksitems, newItem]);
   };
 
   // const value = {
+  //   selectedImage,
   //   Recipename,
   //   noOfInceridient,
   //   time,
@@ -62,7 +76,9 @@ function App() {
                 path="/Admin/AddRecipe"
                 element={
                   <AddRecipe
-                    Addmodule={Addmodule}
+                    VegAddmodule={VegAddmodule}
+                    NonVegAddmodule={NonVegAddmodule}
+                    SnacksAddmodule={SnacksAddmodule}
                     setselectedImage={handleSelectImageChange}
                     setRecipename={handleRecipeChange}
                     setnoOfIncerident={handleNoOfInceridientChange}
@@ -73,8 +89,28 @@ function App() {
               />
               <Route
                 path="/Admin/AdminHome"
-                element={<AdminHome name={name} items={items} />}
+                element={
+                  <AdminHome
+                    name={name}
+                    Vegitems={Vegitems}
+                    NonVegitems={NonVegitems}
+                    Snacksitems={Snacksitems}
+                  />
+                }
               />
+              <Route path="/Admin/Catogries" element={<Catogries />}></Route>
+              <Route
+                path="/Admin/CatogriesVegRecipe"
+                element={<CatogriesVegRecipe Vegitems={Vegitems} />}
+              ></Route>
+              <Route
+                path="/Admin/CatogriesNonVegRecipe"
+                element={<CatogriesNonVegRecipe NonVegitems={NonVegitems} />}
+              ></Route>
+              <Route
+                path="/Admin/CatogriesSnacks"
+                element={<CatogriesSnacks Snacksitems={Snacksitems} />}
+              ></Route>
             </Routes>
           </BrowserRouter>
         </TheContext.Provider>

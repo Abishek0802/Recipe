@@ -22,7 +22,9 @@ const style = {
 };
 
 export default function AddRecipe({
-  Addmodule,
+  VegAddmodule,
+  NonVegAddmodule,
+  SnacksAddmodule,
   setRecipename,
   setselectedImage,
   setnoOfIncerident,
@@ -64,7 +66,7 @@ export default function AddRecipe({
         >
           <Box sx={style}>
             <VegRecipeInput
-              Addmodule={Addmodule}
+              VegAddmodule={VegAddmodule}
               setRecipename={setRecipename}
               setselectedImage={setselectedImage}
               setnoOfIncerident={setnoOfIncerident}
@@ -80,7 +82,7 @@ export default function AddRecipe({
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            <NonVegRecipeInput />
+            <NonVegRecipeInput NonVegAddmodule={NonVegAddmodule} />
           </Box>
         </Modal>
         <Modal
@@ -90,7 +92,7 @@ export default function AddRecipe({
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            <SnacksInput />
+            <SnacksInput SnacksAddmodule={SnacksAddmodule} />
           </Box>
         </Modal>
         <div

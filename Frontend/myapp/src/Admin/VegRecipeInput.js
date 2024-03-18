@@ -3,7 +3,7 @@ import { useState } from "react";
 import "../App.css";
 
 export default function VegRecipeInput({
-  Addmodule,
+  VegAddmodule,
   setRecipename,
   setselectedImage,
   setnoOfIncerident,
@@ -44,7 +44,13 @@ export default function VegRecipeInput({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    Addmodule({ RecipeName, selectedImage, NoOfInceridient, Time, Calories });
+    VegAddmodule({
+      RecipeName,
+      selectedImage,
+      NoOfInceridient,
+      Time,
+      Calories,
+    });
     setRecipename(RecipeName);
     setselectedImage(selectedImage);
     setnoOfIncerident(NoOfInceridient);

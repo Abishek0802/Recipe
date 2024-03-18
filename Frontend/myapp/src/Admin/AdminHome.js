@@ -4,11 +4,18 @@ import SearchIcon from "@mui/icons-material/Search";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import AdminSidenav from "./AdminSidenav";
 import { useText } from "../App.js";
+import Potatofry from "../potatofry.jpg";
 
-export default function AdminHome({ name, items }) {
+export default function AdminHome({
+  name,
+  Vegitems,
+  NonVegitems,
+  Snacksitems,
+}) {
   // const { Recipename, noOfInceridient, time, calories } = useText();
   // console.log(Recipename);
-  console.log(items);
+  console.log(Vegitems);
+  console.log(NonVegitems);
 
   const [searchvalue, setsearchvalue] = useState("");
   const [out, setout] = useState("");
@@ -50,12 +57,47 @@ export default function AdminHome({ name, items }) {
         </div>
       </div>
       <div style={{ color: "white" }}>{out}</div>
-      {/* <div>{Recipename}</div>
-      <div>{noOfInceridient}</div>
-      <div>{time}</div>
-      <div>{calories}</div> */}
+
+      {/* dummy data  */}
       <div className="display-map">
-        {items.map((item, index) => (
+        <div className="mappded">
+          <div>
+            <img
+              style={{
+                height: "260px",
+                width: "400px",
+                objectFit: "fill",
+                borderRadius: "10px",
+              }}
+              src={Potatofry}
+              alt=""
+            />
+          </div>
+          <div
+            style={{
+              position: "relative",
+              right: "40%",
+              fontStyle: "italic",
+              color: "lightgreen",
+            }}
+          >
+            Potatofry
+          </div>
+          <div className="last3">
+            No of Inceridient: <p>7</p>
+          </div>
+          <div className="last3">
+            Time: <p>20 Min</p>{" "}
+          </div>
+          <div className="last3">
+            Calories: <p>240 Calories</p>
+          </div>
+        </div>
+      </div>
+      {/* 
+      Mapped items */}
+      <div className="display-map">
+        {Vegitems.map((Vegitem, index) => (
           <div className="mappded" key={index}>
             <div>
               <img
@@ -65,7 +107,7 @@ export default function AdminHome({ name, items }) {
                   objectFit: "fill",
                   borderRadius: "10px",
                 }}
-                src={URL.createObjectURL(item.selectedImage)}
+                src={URL.createObjectURL(Vegitem.selectedImage)}
                 alt=""
               />
             </div>
@@ -77,16 +119,93 @@ export default function AdminHome({ name, items }) {
                 color: "lightgreen",
               }}
             >
-              {item.RecipeName}
+              {Vegitem.RecipeName}
             </div>
             <div className="last3">
-              No of Inceridient: <p>{item.NoOfInceridient}</p>
+              No of Inceridient: <p>{Vegitem.NoOfInceridient}</p>
             </div>
             <div className="last3">
-              Time: <p>{item.Time}</p>{" "}
+              Time: <p>{Vegitem.Time}</p>{" "}
             </div>
             <div className="last3">
-              Calories: <p>{item.Calories}</p>
+              Calories: <p>{Vegitem.Calories}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Mapped NonVeg */}
+      <div className="display-map">
+        {NonVegitems.map((NonVegitem, index) => (
+          <div className="mappded" key={index}>
+            <div>
+              <img
+                style={{
+                  height: "260px",
+                  width: "400px",
+                  objectFit: "fill",
+                  borderRadius: "10px",
+                }}
+                src={URL.createObjectURL(NonVegitem.selectedImage)}
+                alt=""
+              />
+            </div>
+            <div
+              style={{
+                position: "relative",
+                right: "40%",
+                fontStyle: "italic",
+                color: "lightgreen",
+              }}
+            >
+              {NonVegitem.RecipeName}
+            </div>
+            <div className="last3">
+              No of Inceridient: <p>{NonVegitem.NoOfInceridient}</p>
+            </div>
+            <div className="last3">
+              Time: <p>{NonVegitem.Time}</p>{" "}
+            </div>
+            <div className="last3">
+              Calories: <p>{NonVegitem.Calories}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="display-map">
+        {Snacksitems.map((Snacksitem, index) => (
+          <div className="mappded" key={index}>
+            <div>
+              <img
+                style={{
+                  height: "260px",
+                  width: "400px",
+                  objectFit: "fill",
+                  borderRadius: "10px",
+                }}
+                src={URL.createObjectURL(Snacksitem.selectedImage)}
+                alt=""
+              />
+            </div>
+            <div
+              style={{
+                position: "relative",
+                right: "40%",
+                fontStyle: "italic",
+                color: "lightgreen",
+              }}
+            >
+              {Snacksitem.RecipeName}
+            </div>
+            <div className="last3">
+              No of Inceridient: <p>{Snacksitem.NoOfInceridient}</p>
+            </div>
+            <div className="last3">
+              Time: <p>{Snacksitem.Time}</p>{" "}
+            </div>
+            <div className="last3">
+              Calories: <p>{Snacksitem.Calories}</p>
             </div>
           </div>
         ))}

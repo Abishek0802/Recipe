@@ -180,3 +180,27 @@
   left: 60px;
   flex-wrap: wrap;
 }
+.catogries-header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  margin-left: 16%;
+}
+.catogries-header > h3 {
+  position: relative;
+  left: 20%;
+}
+.catogries-content {
+  color: lightgreen;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  top: 200px;
+}
+.catogries-content > div > h1 {
+  background-color: black;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
