@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Potatofry from "../potatofry.jpg";
 
 export default function CatogriesVegRecipe({ Vegitems }) {
+  const [StoredVegItems, setStoredVegItems] = useState([]);
+
+  useEffect(() => {
+    setStoredVegItems([...Vegitems]);
+  }, [Vegitems]);
+
+  const handleDelete = (index) => {
+    const newVegItems = [...StoredVegItems];
+    newVegItems.splice(index, 1);
+    setStoredVegItems(newVegItems);
+  };
+
   return (
     <>
       {/* Dummy Data */}
@@ -44,7 +56,7 @@ export default function CatogriesVegRecipe({ Vegitems }) {
 
       {/* Mapped Data */}
       <div className="display-map">
-        {Vegitems.map((Vegitem, index) => (
+        {StoredVegItems.map((StoredVegItem, index) => (
           <div className="mappded" key={index}>
             <div>
               <img
@@ -54,7 +66,7 @@ export default function CatogriesVegRecipe({ Vegitems }) {
                   objectFit: "fill",
                   borderRadius: "10px",
                 }}
-                src={URL.createObjectURL(Vegitem.selectedImage)}
+                src={URL.createObjectURL(StoredVegItem.selectedImage)}
                 alt=""
               />
             </div>
@@ -66,16 +78,26 @@ export default function CatogriesVegRecipe({ Vegitems }) {
                 color: "lightgreen",
               }}
             >
-              {Vegitem.RecipeName}
+              {StoredVegItem.RecipeName}
             </div>
             <div className="last3">
-              No of Inceridient: <p>{Vegitem.NoOfInceridient}</p>
+              No of Inceridient: <p>{StoredVegItem.NoOfInceridient}</p>
             </div>
             <div className="last3">
-              Time: <p>{Vegitem.Time}</p>{" "}
+              Time: <p>{StoredVegItem.Time}</p>{" "}
             </div>
             <div className="last3">
-              Calories: <p>{Vegitem.Calories}</p>
+              Calories: <p>{StoredVegItem.Calories}</p>
+            </div>
+            <div>
+              <button
+                onClick={() => {
+                  handleDelete(index);
+                }}
+                style={{ color: "red", marginTop: "20px" }}
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}

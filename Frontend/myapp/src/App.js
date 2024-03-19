@@ -36,6 +36,18 @@ function App() {
     setSnacksItems([...Snacksitems, newItem]);
   };
 
+  // const handleDelete = (index) => {
+  //   const newVegItems = [...Vegitems];
+  //   const newNonVegitems = [...NonVegitems];
+  //   const newSnacksitems = [...Snacksitems];
+  //   newVegItems.splice(index, 1);
+  //   newNonVegitems.splice(index, 1);
+  //   newSnacksitems.splice(index, 1);
+  //   setVegItems(newVegItems);
+  //   setNonVegItems(newNonVegitems);
+  //   setSnacksItems(newSnacksitems);
+  // };
+
   // const value = {
   //   selectedImage,
   //   Recipename,

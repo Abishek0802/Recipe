@@ -14,11 +14,20 @@ export default function AdminHome({
 }) {
   // const { Recipename, noOfInceridient, time, calories } = useText();
   // console.log(Recipename);
-  console.log(Vegitems);
-  console.log(NonVegitems);
+  // console.log(Vegitems);
+  // console.log(NonVegitems);
+
+  const [StoredVegItems, setStoredVegItems] = useState([...Vegitems]);
+  console.log(StoredVegItems);
 
   const [searchvalue, setsearchvalue] = useState("");
   const [out, setout] = useState("");
+
+  const handleDelete = (index) => {
+    const newVegItems = [...StoredVegItems];
+    newVegItems.splice(index, 1);
+    setStoredVegItems(newVegItems);
+  };
 
   function search() {
     if (!searchvalue === "") {
@@ -97,7 +106,7 @@ export default function AdminHome({
       {/* 
       Mapped items */}
       <div className="display-map">
-        {Vegitems.map((Vegitem, index) => (
+        {StoredVegItems.map((StoredVegItem, index) => (
           <div className="mappded" key={index}>
             <div>
               <img
@@ -107,7 +116,7 @@ export default function AdminHome({
                   objectFit: "fill",
                   borderRadius: "10px",
                 }}
-                src={URL.createObjectURL(Vegitem.selectedImage)}
+                src={URL.createObjectURL(StoredVegItem.selectedImage)}
                 alt=""
               />
             </div>
@@ -119,16 +128,26 @@ export default function AdminHome({
                 color: "lightgreen",
               }}
             >
-              {Vegitem.RecipeName}
+              {StoredVegItem.RecipeName}
             </div>
             <div className="last3">
-              No of Inceridient: <p>{Vegitem.NoOfInceridient}</p>
+              No of Inceridient: <p>{StoredVegItem.NoOfInceridient}</p>
             </div>
             <div className="last3">
-              Time: <p>{Vegitem.Time}</p>{" "}
+              Time: <p>{StoredVegItem.Time}</p>{" "}
             </div>
             <div className="last3">
-              Calories: <p>{Vegitem.Calories}</p>
+              Calories: <p>{StoredVegItem.Calories}</p>
+            </div>
+            <div>
+              <button
+                onClick={() => {
+                  handleDelete(index);
+                }}
+                style={{ color: "red", marginTop: "20px" }}
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}
@@ -169,6 +188,16 @@ export default function AdminHome({
             <div className="last3">
               Calories: <p>{NonVegitem.Calories}</p>
             </div>
+            <div>
+              <button
+                onClick={() => {
+                  handleDelete(index);
+                }}
+                style={{ color: "red", marginTop: "20px" }}
+              >
+                Delete
+              </button>
+            </div>
           </div>
         ))}
       </div>
@@ -206,6 +235,16 @@ export default function AdminHome({
             </div>
             <div className="last3">
               Calories: <p>{Snacksitem.Calories}</p>
+            </div>
+            <div>
+              <button
+                onClick={() => {
+                  handleDelete(index);
+                }}
+                style={{ color: "red", marginTop: "20px" }}
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}
