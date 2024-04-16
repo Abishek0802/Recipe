@@ -20,6 +20,18 @@ export default function AdminHome({
   const [StoredVegItems, setStoredVegItems] = useState([...Vegitems]);
   console.log(StoredVegItems);
 
+  useEffect(() => {
+    // Retrieve name from localStorage
+    const storedName = localStorage.getItem("name");
+    if (storedName) {
+      setWelcome(storedName);
+    } else if (name) {
+      // If name prop is provided, set the welcome state and store it in localStorage
+      setWelcome(name);
+      localStorage.setItem("name", name);
+    }
+  }, [name]);
+
   const [searchvalue, setsearchvalue] = useState("");
   const [out, setout] = useState("");
 

@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 import "../App.css";
 
@@ -12,7 +11,6 @@ export default function VegRecipeInput({
   settime,
   setcalories,
 }) {
-  const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(null);
   const [RecipeName, setRecipeName] = useState("");
   const [NoOfInceridient, setNoOfIncerident] = useState("");
@@ -46,14 +44,13 @@ export default function VegRecipeInput({
   };
 
   function handleSubmit(event) {
-    // VegAddmodule({
-    //   RecipeName,
-    //   selectedImage,
-    //   NoOfInceridient,
-    //   Time,
-    //   Calories,
-    // });
-    window.location.reload();
+    VegAddmodule({
+      RecipeName,
+      selectedImage,
+      NoOfInceridient,
+      Time,
+      Calories,
+    });
 
     // Perform upload logic here
     if (selectedImage) {
